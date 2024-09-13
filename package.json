@@ -6,11 +6,18 @@
   "scripts": {
     "start": "node server.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+ https://github.com/allarohithreddy/personal-budget1.git"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/allarohithreddy/personal-budget1.git"
+  },
+  "homepage": "https://github.com/allarohithreddy/personal-budget1.git",
   "dependencies": {
     "express": "^4.21.0"
-  },
-  "devDependencies": {}
+  }
 }
