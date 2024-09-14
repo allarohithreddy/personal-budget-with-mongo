@@ -19,5 +19,6 @@
   "homepage": "https://github.com/allarohithreddy/personal-budget1.git",
   "dependencies": {
     "express": "^4.21.0"
-  }
+  },
+  "devDependencies": {}
 }
