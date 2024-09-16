@@ -69,15 +69,19 @@
             </aside>
     
             <!-- This is a Semantic HTML Change -->
-            <article class="text-box">
-                <h1>Free</h1>
-                <!-- This is an A11y Change -->
-                <p>
-                    <canvas id ="myChart" width="80" height="80"></canvas>
-                </p>
-                    
-            
-            </article>
+            <div class="charts">
+                <!-- This is a Semantic HTML change -->
+                <article class="text-box d3js" id="d3jsChart">
+                    <h1>D3js Chart</h1>
+                </article>
+                <!-- This is a Semantic HTML change -->
+                <article class="text-box">
+                    <h1>Pie Chart</h1>
+                    <p>
+                        <canvas id="myChart" min-width="400" min-height="400"></canvas>
+                    </p>
+                </article>
+            </div>
 
         </section>
 
