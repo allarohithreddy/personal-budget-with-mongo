@@ -18,17 +18,18 @@
 </head>
 <body>
 
-
-    <header class="menu"> 
-        <ul>
-            <li><a href="/">Homepage</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="login.html">Login</a></li>
-
-            <!-- This is an A11y Change -->
-            <li><a href="https://google.com" aria-label="Visit Google - opens in a new tab" target="_blank" rel="noopener noreferrer">Google</a></li>
-        </ul>
-    </header>
+    <div class="menu">
+        <header class="menu"> 
+            <ul>
+                <li><a href="/">Homepage</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="login.html">Login</a></li>
+    
+                <!-- This is an A11y Change -->
+                <li><a href="https://google.com" aria-label="Visit Google - opens in a new tab" target="_blank" rel="noopener noreferrer">Google</a></li>
+            </ul>
+        </header>
+    </div>
 
     <div class="hero">
         <h1>Personal Budget</h1>
@@ -119,15 +120,6 @@
             {
                 data: [],
                 backgroundColor: [
-                    '#CC0003',
-                    '#45818d',
-                    '#c90078',
-                    '#783f09',
-                    '#ffcd51',
-                    '#ff6383',
-                    '#36a2e0',
-                    '#fd6b19',
-                    '#f6b26f'
                 ],
             }
         ],
@@ -233,14 +225,15 @@
     function getBudget(){
         axios.get('/budget')
         .then(function (res) {
-            // console.log(res.data);
-            for(var i = 0; i <res.data.myBudget.length; i++){
-                dataSource.datasets[0].data[i] = res.data.myBudget[i].budget;
-                dataSource.labels[i] = res.data.myBudget[i].title;
+            const budgetData = res.data.data;
+            dataSource.datasets[0].data = budgetData.map(item => item.budget);
+            dataSource.labels = budgetData.map(item => item.title);
+            dataSource.datasets[0].backgroundColor = budgetData.map(item => item.color);
+            for (let i = 0; i < budgetData.length; i++) {
                 dataSource.myBudget.push({
-                    "title": res.data.myBudget[i].title,
-                    "budget": res.data.myBudget[i].budget
-                })
+                    "title": budgetData[i].title,
+                    "budget": budgetData[i].budget
+                });
             }
             createChart();
             populateD3jsChart();
